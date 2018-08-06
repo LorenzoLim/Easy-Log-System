@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+.App {
+  text-align: center;
+}
+.App-header {
+  height: 150px;
+  padding: 20px;
+  color: #fff;
+
+}
+/* create user toggle switch */
+.adminToggle {
+  display: inline-flex;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 16px;
+  max-width: 250px;
+}
+/* buttons on Junction component */
+.button {
+  margin-top: 1rem;
+  width: 15rem;
+}
+
+img {
+  width: 180px;
+  max-height: 20%;
+  height: auto;
+  padding: 30px;
+}
+
+.App-title {
+  font-size: 2.5rem;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.title .sign-in {
+ color: blue;
+}
+
+/*  create project component */
