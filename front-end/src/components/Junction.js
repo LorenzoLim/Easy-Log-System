@@ -80,6 +80,12 @@ class Junction extends Component {
             <RaisedButton className="button" label="Create New Project" primary={true} onClick={(event) => this.handleNewProject(event)}/>
           </div> */}
         </MuiThemeProvider>
+
+        {/* <Switch>
+          <Route path="/manage" component={Manage} />
+          <Route path="/newmanager" component={CreateUser} />
+          <Route path="/newproject" component={CreateProject} />
+        </Switch> */}
       </div>
     );
   }
