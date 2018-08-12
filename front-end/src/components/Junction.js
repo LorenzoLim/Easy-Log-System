@@ -70,15 +70,6 @@ class Junction extends Component {
                 </div>
               </Tab>
             </Tabs>
-          {/* <div>
-            <RaisedButton className="button" label="Manage" primary={true}  onClick={(event) => this.handleManage(event)}/>
-
-            <RaisedButton className="button" label="Export" primary={true} onClick={(event) => this.handleCSVExport(event)}/>
-
-            <RaisedButton className="button" label="Create New User" primary={true} onClick={(event) => this.handleNewUser(event)}/>
-
-            <RaisedButton className="button" label="Create New Project" primary={true} onClick={(event) => this.handleNewProject(event)}/>
-          </div> */}
         </MuiThemeProvider>
 
         {/* <Switch>
