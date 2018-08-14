@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import './App.css'
 import LogIn from './components/LogIn'
+import './App.css'
 
 require('dotenv').config()
-
 
 class App extends Component {
   render() {
