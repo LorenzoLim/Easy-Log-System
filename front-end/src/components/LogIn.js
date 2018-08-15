@@ -22,6 +22,18 @@ class App extends Component {
     }
   };
 
+  componentWillMount(response) {
+    api.get ('/projects')
+      .then(response => {
+        this.setState({
+          projects: response.data
+        })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   handleSignIn = () => {
     let {email, password} = this.state;
     api({

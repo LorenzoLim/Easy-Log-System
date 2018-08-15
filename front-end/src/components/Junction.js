@@ -3,7 +3,6 @@ import Manage from './Manage'
 import Projects from './Projects'
 import Users from './Users'
 import {MuiThemeProvider, Tabs, Tab} from 'material-ui';
-import {withRouter} from 'react-router-dom';
 
 require('dotenv').config()
 
@@ -91,4 +90,4 @@ class Junction extends Component {
   }
 }
 
-export default withRouter(Junction)
+export default Junction;
