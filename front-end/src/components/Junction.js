@@ -47,7 +47,6 @@ class Junction extends Component {
             <Tabs>
               <Tab label="Projects" >
                 <div>
-                  {console.log('hello')}
                   <Projects />
                 </div>
               </Tab>

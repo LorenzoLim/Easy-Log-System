@@ -61,7 +61,7 @@ class App extends Component {
       <div className="App">
         <img src={logo} alt="logo" />
         {
-          token ? (role === 'admin' ? <Junction /> : <CheckIn /> ) :
+          token ? (role === 'admin' ? <Junction /> : <CheckIn userId={userId} /> ) :
           (
             <div>
               <MuiThemeProvider>
