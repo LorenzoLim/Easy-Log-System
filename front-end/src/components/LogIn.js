@@ -23,7 +23,7 @@ class App extends Component {
     }
   };
 
-  componentWillMount(response) {
+  componentDidMount(response) {
     api.get ('/projects')
       .then(response => {
         this.setState({

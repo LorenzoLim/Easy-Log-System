@@ -60,7 +60,7 @@ class Junction extends Component {
               <Tab label="Report" data-route="/home">
                 <div>
                   <h2 style={styles.headline}>Tab Three</h2>
-                  <Manage />
+                  <Manage projects={this.props.projects} />
                 </div>
               </Tab>
               <Tab label="Sign Out" data-route="/home">

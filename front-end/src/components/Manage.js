@@ -3,9 +3,12 @@ import {MuiThemeProvider, SelectField, MenuItem} from 'material-ui';
 import ProjectCard from './ProjectCard'
 
 class Manage extends Component {
-  state = {
-    projects: null,
-    selected: null
+  constructor(props){
+    super(props);
+    this.state = {
+      projects: this.props.projects,
+      selected: null
+    }
   };
 
   handleChange = (event, index, value) => {

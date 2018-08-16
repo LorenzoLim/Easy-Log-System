@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {MuiThemeProvider} from 'material-ui';
+import {api} from '../request.js';
 import {
   Table,
   TableBody,
@@ -13,13 +14,25 @@ class Manage extends Component {
   constructor(props){
     super(props);
     this.state = {
-      projects: this.props.projects,
+      projects: null,
       selected: null,
       showCheckboxes: false,
       fixedHeader: true,
       fixedFooter: true
     }
   };
+
+  componentDidMount(response) {
+    api.get ('/projects')
+      .then(response => {
+        this.setState({
+          projects: response.data
+        })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   handleChange = (event, index, value) => {
     this.setState({

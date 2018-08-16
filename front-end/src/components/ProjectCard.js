@@ -10,17 +10,21 @@ import {
 } from 'material-ui/Table';
 
 class ProjectCard extends Component {
-  state = {
-    projectNumber: "",
-    projectLocation: "",
-    projectName: "",
-    projectStatus: "",
-    projectUsers: null,
-    hourDetails: null,
-    showCheckboxes: false,
-    fixedHeader: true,
-    fixedFooter: true
+  constructor(props){
+    super(props);
+    this.state = {
+      projectNumber: "",
+      projectLocation: "",
+      projectName: "",
+      projectStatus: "",
+      projectUsers: null,
+      hourDetails: null,
+      showCheckboxes: false,
+      fixedHeader: true,
+      fixedFooter: true
+    }
   };
+  
   //
   componentWillReceiveProps(nextProps) {
     if (this.props.projectId !== nextProps.projectId) {
