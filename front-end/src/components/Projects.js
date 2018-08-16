@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {MuiThemeProvider} from 'material-ui';
-import {api} from '../request.js';
 import {
   Table,
   TableBody,
@@ -11,25 +10,16 @@ import {
 } from 'material-ui/Table';
 
 class Manage extends Component {
-  state = {
-    projects: null,
-    selected: null,
-    showCheckboxes: false,
-    fixedHeader: true,
-    fixedFooter: true
+  constructor(props){
+    super(props);
+    this.state = {
+      projects: this.props.projects,
+      selected: null,
+      showCheckboxes: false,
+      fixedHeader: true,
+      fixedFooter: true
+    }
   };
-
-  componentWillMount(response) {
-    api.get ('/projects')
-      .then(response => {
-        this.setState({
-          projects: response.data
-        })
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
 
   handleChange = (event, index, value) => {
     this.setState({

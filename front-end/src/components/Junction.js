@@ -7,13 +7,15 @@ import {MuiThemeProvider, Tabs, Tab} from 'material-ui';
 require('dotenv').config()
 
 class Junction extends Component {
-
-  state = {
-    manage: false,
-    newUser: false,
-    newProject: false,
-    data: null
-  }
+  constructor(props){
+    super(props);
+    this.state = {
+      manage: false,
+      newUser: false,
+      newProject: false,
+      data: null
+    }
+  };
 
   handleManage = (event) => {
     this.props.history.push('/manage')
@@ -47,7 +49,7 @@ class Junction extends Component {
             <Tabs>
               <Tab label="Projects" >
                 <div>
-                  <Projects />
+                  <Projects projects={this.props.projects} />
                 </div>
               </Tab>
               <Tab label="Users" >
