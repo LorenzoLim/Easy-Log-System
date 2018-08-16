@@ -42,12 +42,12 @@ class Junction extends Component {
     };
 
     return (
-
       <div>
         <MuiThemeProvider>
             <Tabs>
               <Tab label="Projects" >
                 <div>
+                  {console.log('hello')}
                   <Projects />
                 </div>
               </Tab>

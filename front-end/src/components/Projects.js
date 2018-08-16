@@ -44,50 +44,52 @@ class Manage extends Component {
     }
     return (
       <MuiThemeProvider>
-        <div>
-          <Table>
-            <TableHeader
-               displaySelectAll={showCheckboxes}
-               fixedHeader={fixedHeader}
-               fixedFooter={fixedFooter}
-               adjustForCheckbox={showCheckboxes}
-            >
-              <TableRow className="tableHeaderStyle">
-                <TableHeaderColumn>Project Number</TableHeaderColumn>
-                <TableHeaderColumn>Project Name</TableHeaderColumn>
-                <TableHeaderColumn>Location</TableHeaderColumn>
-                <TableHeaderColumn>Status</TableHeaderColumn>
-                <TableHeaderColumn>Managers</TableHeaderColumn>
-              </TableRow>
-            </TableHeader>
-            <TableBody displayRowCheckbox={this.state.showCheckboxes}>
-              {projects.map((project) =>
-                <TableRow key={project._id}>
-                  <TableRowColumn>{project.projectNum}</TableRowColumn>
-                  <TableRowColumn>{project.projectName}</TableRowColumn>
-                  <TableRowColumn>{project.projectLocation}</TableRowColumn>
-                  <TableRowColumn>{project.projectStatus}</TableRowColumn>
-                  <TableRowColumn>
-                    {project.projectUsers.map((user) =>
-                      <span key={user._id}>{user.firstName} {user.lastName}<br /></span>
-                    )}
-                  </TableRowColumn>
+        { projects && (
+          <div>
+            <Table>
+              <TableHeader
+                 displaySelectAll={showCheckboxes}
+                 fixedHeader={fixedHeader}
+                 fixedFooter={fixedFooter}
+                 adjustForCheckbox={showCheckboxes}
+              >
+                <TableRow className="tableHeaderStyle">
+                  <TableHeaderColumn>Project Number</TableHeaderColumn>
+                  <TableHeaderColumn>Project Name</TableHeaderColumn>
+                  <TableHeaderColumn>Location</TableHeaderColumn>
+                  <TableHeaderColumn>Status</TableHeaderColumn>
+                  <TableHeaderColumn>Managers</TableHeaderColumn>
                 </TableRow>
-                )
-              }
-            </TableBody>
-          </Table>
-          {/* <SelectField
-            floatingLabelText="Select Project  "
-            value={selected}
-            onChange={this.handleChange}
-            >
-              {projects.map((project) =>
-                <MenuItem key={project._id} value={project._id} primaryText={project.projectName} />
-              )}
-          </SelectField>
-          <ProjectCard projectId={selected}/> */}
-        </div>
+              </TableHeader>
+              <TableBody displayRowCheckbox={this.state.showCheckboxes}>
+                {projects.map((project) =>
+                  <TableRow key={project._id}>
+                    <TableRowColumn>{project.projectNum}</TableRowColumn>
+                    <TableRowColumn>{project.projectName}</TableRowColumn>
+                    <TableRowColumn>{project.projectLocation}</TableRowColumn>
+                    <TableRowColumn>{project.projectStatus}</TableRowColumn>
+                    <TableRowColumn>
+                      {project.projectUsers.map((user) =>
+                        <span key={user._id}>{user.firstName} {user.lastName}<br /></span>
+                      )}
+                    </TableRowColumn>
+                  </TableRow>
+                  )
+                }
+              </TableBody>
+            </Table>
+            {/* <SelectField
+              floatingLabelText="Select Project  "
+              value={selected}
+              onChange={this.handleChange}
+              >
+                {projects.map((project) =>
+                  <MenuItem key={project._id} value={project._id} primaryText={project.projectName} />
+                )}
+            </SelectField>
+            <ProjectCard projectId={selected}/> */}
+          </div>
+        )}
       </MuiThemeProvider>
     );
   }

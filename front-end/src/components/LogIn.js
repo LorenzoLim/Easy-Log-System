@@ -22,18 +22,6 @@ class App extends Component {
     }
   };
 
-  componentWillMount(response) {
-    api.get ('/projects')
-      .then(response => {
-        this.setState({
-          projects: response.data
-        })
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
   handleSignIn = () => {
     let {email, password} = this.state;
     api({
@@ -73,7 +61,7 @@ class App extends Component {
       <div className="App">
         <img src={logo} alt="logo" />
         {
-          token ? (role === 'admin' ? <Junction /> : <CheckIn userId={userId} />) :
+          token ? (role === 'admin' ? <Junction /> : <CheckIn /> ) :
           (
             <div>
               <MuiThemeProvider>
