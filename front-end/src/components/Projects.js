@@ -22,7 +22,7 @@ class Manage extends Component {
     }
   };
 
-  componentDidMount(response) {
+  componentWillMount(response) {
     api.get ('/projects')
       .then(response => {
         this.setState({

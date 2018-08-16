@@ -24,16 +24,13 @@ class ProjectCard extends Component {
       fixedFooter: true
     }
   };
-  
+
   //
   componentWillReceiveProps(nextProps) {
-    if (this.props.projectId !== nextProps.projectId) {
-      this.fetchProject(nextProps.projectId)
-    }
+    this.fetchProject(nextProps.projectId)
   }
 
   fetchProject(projectId) {
-    if(this.state.hourDetails){
       api.get(`/projects/${projectId}`)
         .then(({data}) => {
           this.setState({
@@ -57,7 +54,6 @@ class ProjectCard extends Component {
         .catch((error) => {
           console.log(error);
         });
-      }
   }
 
   render() {

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {MuiThemeProvider, SelectField, MenuItem} from 'material-ui';
-import ProjectCard from './ProjectCard'
+import ProjectCard from './ProjectCard';
+import { api } from '../request'
 
 class Manage extends Component {
   constructor(props){
@@ -10,6 +11,18 @@ class Manage extends Component {
       selected: null
     }
   };
+
+  componentWillMount(response) {
+    api.get ('/projects')
+      .then(response => {
+        this.setState({
+          projects: response.data
+        })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   handleChange = (event, index, value) => {
     this.setState({
