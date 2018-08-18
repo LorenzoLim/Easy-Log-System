@@ -3,6 +3,7 @@ import Manage from './Manage'
 import Projects from './Projects'
 import Users from './Users'
 import {MuiThemeProvider, Tabs, Tab} from 'material-ui';
+import { css } from 'glamor';
 
 require('dotenv').config()
 
@@ -34,14 +35,9 @@ class Junction extends Component {
   }
 
   render() {
-    const styles = {
-      headline: {
-        fontSize: 24,
-        paddingTop: 16,
-        marginBottom: 12,
-        fontWeight: 400,
-      },
-    };
+    const styles = css({
+      textAlign: 'center'
+    });
 
     return (
       <div>
@@ -58,15 +54,13 @@ class Junction extends Component {
                 </div>
               </Tab>
               <Tab label="Report" data-route="/home">
-                <div>
-                  <h2 style={styles.headline}>Tab Three</h2>
+                <div {...styles}>
                   <Manage />
                 </div>
               </Tab>
               <Tab label="Sign Out" data-route="/home">
                 <div>
-                  <h2 style={styles.headline}>Tab Three</h2>
-
+                  <h2>Tab Three</h2>
                 </div>
               </Tab>
             </Tabs>

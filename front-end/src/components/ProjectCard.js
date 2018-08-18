@@ -25,7 +25,6 @@ class ProjectCard extends Component {
     }
   };
 
-  //
   componentWillReceiveProps(nextProps) {
     this.fetchProject(nextProps.projectId)
   }

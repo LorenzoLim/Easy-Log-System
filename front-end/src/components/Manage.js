@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {MuiThemeProvider, SelectField, MenuItem} from 'material-ui';
 import ProjectCard from './ProjectCard';
-import { api } from '../request'
+import { api } from '../request';
 
 class Manage extends Component {
   constructor(props){
