@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import Manage from './Manage'
-import Projects from './Projects'
-import Users from './Users'
+import React, {Component} from 'react';
+import Manage from './Manage';
+import Projects from './Projects';
+import Users from './Users';
 import {MuiThemeProvider, Tabs, Tab} from 'material-ui';
 import { css } from 'glamor';
 
