@@ -24,30 +24,23 @@ router.get('/report.csv', (req, res) =>{
   });
 });
 
-/* Get CSV Data */
-// router.get('/report.csv',(req, res) => {
-//   const flatUsers = []
-//   Promise.all([
-//     User.find(),
-//     Project.find()
-//   ]).then(([users, projects]) => {
-//     projects.forEach((project) => {
-//       users.forEach((user) => {
-//           let counter = 0;
-//           user.hours.forEach((hour) => {
-//             const result = {
-//               firstName: user.firstName,
-//               lastName: user.lastName,
-//               type: hour.type,
-//               project: project.projectName,
-//               total: hour.total
-//             }
-//             flatUsers.push(result)
-//           })
-//       })
-//     })
-//     res.csv(flatUsers);
-//   })
-// });
+router.get('/report', (req, res) => {
+  Hour.find({"project_id": req.query.projectId})
+  .then((hours) => {
+    User.populate(hours, {path: "user_id"}).then((result) => {
+      Hour.populate(result, {path: "project_id"}).then((final) => {
+        const newArray = final.map((data) => ({
+          type: data.type,
+          total: data.total,
+          userFirstName: data.user_id.firstName,
+          userLastName: data.user_id.lastName,
+          project: data.project_id.projectName
+        }))
+        newArray.unshift(['Type', 'Total', 'First Name', 'Last Name', 'Project'])
+        res.csv(newArray);
+      })
+    })
+  })
+});
 
 module.exports = router;
