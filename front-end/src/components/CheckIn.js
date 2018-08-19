@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import moment from 'moment';
 import {MuiThemeProvider, MenuItem, RaisedButton, SelectField, Toggle, TextField} from 'material-ui';
 import {api} from '../request';
-// import axios from 'axios';
+
 
 class CheckIn extends Component {
   state = {
@@ -38,8 +38,8 @@ class CheckIn extends Component {
   };
 
   componentDidMount() {
-    if(this.state.projects){
-      api.get (`/projects?userId=${this.props.userId}`)
+    if(!this.state.projects){
+      api.get (`/projects`)
         .then(response => {
           this.setState({
             projects: response.data
@@ -130,69 +130,69 @@ class CheckIn extends Component {
 
   render() {
     let {projects, selectedProject, checkedIn, startTime, selectedHourType, hourType, manualHour} = this.state
-    if (!projects || !hourType) {
+    if (!projects) {
       return null
-    }
-
-    return (
-      <MuiThemeProvider>
-        {
-          checkedIn ? (
-            <div>
-              <p>
-                Timer Started at {startTime.format("hh:mm A")}
-              </p>
-              <p>
-                Type Of Hour - {selectedHourType}
-              </p>
-              <RaisedButton  className="button" label="Stop Work" primary={true} onClick={this.stopTimer}/>
-            </div>
-          ) : (
-            <div>
-              <SelectField
-              value={selectedProject}
-              onChange={this.handleProjectChange}
-              hintText='Select Project '
-              >
-                {projects.map((project) =>
-                  <MenuItem key={project._id} value={project._id} primaryText={project.projectName} />
-                )}
-            </SelectField>
-            <br/>
-            <SelectField
-              value={selectedHourType}
-              onChange={this.handleHourChange}
-              autoWidth={false}
-              hintText='Select Type '
-            >
-              {
-                hourType.map((hour) =>
-                  <MenuItem key={hour._id} value={hour.type} primaryText={hour.type} />
-              )}
-            </SelectField>
-            <br/>
-            <Toggle
-              label="Manual Set Hours"
-              className="adminToggle"
-              onToggle={this.toggleManualHours}
-            />
-            { manualHour ? (
+    }else{
+      return (
+        <MuiThemeProvider>
+          {
+            checkedIn ? (
               <div>
-                <TextField
-                  floatingLabelText="Completed Hours"
-                  type="number"
-                  onChange = {(event,newValue) => this.setState({totalTime:newValue})}
-                />
-                <br/>
-                <RaisedButton  className="button" label="Submit Hours" primary={true} onClick={this.submitManual}/>
+                <p>
+                  Timer Started at {startTime.format("hh:mm A")}
+                </p>
+                <p>
+                  Type Of Hour - {selectedHourType}
+                </p>
+                <RaisedButton  className="button" label="Stop Work" primary={true} onClick={this.stopTimer}/>
               </div>
             ) : (
-              <RaisedButton  className="button" label="Start Work" primary={true} onClick={this.startTimer}/>
-            )}
-          </div>
-        )}
-      </MuiThemeProvider>
-    );
+              <div>
+                <SelectField
+                value={selectedProject}
+                onChange={this.handleProjectChange}
+                hintText='Select Project '
+                >
+                  {projects.map((project) =>
+                    <MenuItem key={project._id} value={project._id} primaryText={project.projectName} />
+                  )}
+              </SelectField>
+              <br/>
+              <SelectField
+                value={selectedHourType}
+                onChange={this.handleHourChange}
+                autoWidth={false}
+                hintText='Select Type '
+              >
+                {
+                  hourType.map((hour) =>
+                    <MenuItem key={hour._id} value={hour.type} primaryText={hour.type} />
+                )}
+              </SelectField>
+              <br/>
+              <Toggle
+                label="Manual Set Hours"
+                className="adminToggle"
+                onToggle={this.toggleManualHours}
+              />
+              { manualHour ? (
+                <div>
+                  <TextField
+                    floatingLabelText="Completed Hours"
+                    type="number"
+                    onChange = {(event,newValue) => this.setState({totalTime:newValue})}
+                  />
+                  <br/>
+                  <RaisedButton  className="button" label="Submit Hours" primary={true} onClick={this.submitManual}/>
+                </div>
+              ) : (
+                <RaisedButton  className="button" label="Start Work" primary={true} onClick={this.startTimer}/>
+              )}
+            </div>
+          )}
+        </MuiThemeProvider>
+      );
+    }
   }
 }
 
