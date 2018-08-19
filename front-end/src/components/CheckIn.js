@@ -188,6 +188,9 @@ class CheckIn extends Component {
               ) : (
                 <RaisedButton  className="button" label="Start Work" primary={true} onClick={this.startTimer}/>
               )}
+              <div>
+                <RaisedButton className="button"label="SignOut" primary={true} onClick={this.handleSignOut}/>
+              </div>
             </div>
           )}
         </MuiThemeProvider>
