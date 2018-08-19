@@ -8,11 +8,16 @@ import {
   TableRow,
   TableRowColumn
 } from 'material-ui/Table';
+import {
+  MuiThemeProvider, 
+  RaisedButton
+} from 'material-ui';
 
 class ProjectCard extends Component {
   constructor(props){
     super(props);
     this.state = {
+      projectId: null,
       projectNumber: "",
       projectLocation: "",
       projectName: "",
@@ -33,6 +38,7 @@ class ProjectCard extends Component {
       api.get(`/projects/${projectId}`)
         .then(({data}) => {
           this.setState({
+            projectId: projectId,
             projectNum: data.projectNum,
             projectLocation: data.projectLocation,
             projectName: data.projectName,
@@ -53,6 +59,11 @@ class ProjectCard extends Component {
         .catch((error) => {
           console.log(error);
         });
+  }
+
+  handleCSVExport = (event) => {
+    const { projectId } = this.state
+    window.open(`${process.env.REACT_APP_API_URL}report?projectId=${projectId}`, "_blank")
   }
 
   render() {
@@ -110,6 +121,9 @@ class ProjectCard extends Component {
             </TableRow>
           </TableBody>
         </Table>
+        <MuiThemeProvider>
+          <RaisedButton className="button"label="Export" primary={true} onClick={this.handleCSVExport}/>
+        </MuiThemeProvider>
       </div>
     )
   }

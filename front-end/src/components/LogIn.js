@@ -61,7 +61,7 @@ class App extends Component {
       <div className="App">
         <img src={logo} alt="logo" />
         {
-          token ? (role === 'admin' ? <Junction /> : <CheckIn userId={userId} /> ) :
+          token ? (role === 'admin' ? <Junction handleSignOut={this.handleSignOut} /> : <CheckIn userId={userId} /> ) :
           (
             <div>
               <MuiThemeProvider>
@@ -85,13 +85,13 @@ class App extends Component {
             </div>
           )
         }
-        {
+        {/* {
           token && (
             <MuiThemeProvider>
               <RaisedButton className="button"label="SignOut" primary={true} onClick={this.handleSignOut}/>
             </MuiThemeProvider>
           )
-        }
+        } */}
       </div>
     );
   }
