@@ -81,16 +81,6 @@ class Manage extends Component {
                 }
               </TableBody>
             </Table>
-            {/* <SelectField
-              floatingLabelText="Select Project  "
-              value={selected}
-              onChange={this.handleChange}
-              >
-                {projects.map((project) =>
-                  <MenuItem key={project._id} value={project._id} primaryText={project.projectName} />
-                )}
-            </SelectField>
-            <ProjectCard projectId={selected}/> */}
           </div>
         )}
       </MuiThemeProvider>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import '../App.css'
-import logo from '../images/downer-logo.jpg'
-import Junction from './Junction'
-import CheckIn from './CheckIn'
-import { api, setJwt } from '../request'
+import '../App.css';
+import logo from '../images/downer-logo.jpg';
+import Junction from './Junction';
+import CheckIn from './CheckIn';
+import { api, setJwt } from '../request';
 import {MuiThemeProvider, RaisedButton, TextField} from 'material-ui';
 const jwt = require('jsonwebtoken');
 

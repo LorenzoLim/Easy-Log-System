@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
-import { api } from '../request'
+import React, {Component} from 'react';
+import { api } from '../request';
 import {MuiThemeProvider, RaisedButton, TextField, SelectField, MenuItem} from 'material-ui';
+
 class CreateProject extends Component {
   constructor(props){
     super(props);
@@ -38,6 +39,7 @@ class CreateProject extends Component {
       console.log(error);
     });
   }
+  
   componentWillMount(response) {
     api.get ('/users')
       .then(response => {

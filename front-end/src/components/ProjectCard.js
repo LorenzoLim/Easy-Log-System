@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {api} from '../request.js'
+import {api} from '../request.js';
 import {
   Table,
   TableBody,
@@ -9,7 +9,7 @@ import {
   TableRowColumn
 } from 'material-ui/Table';
 import {
-  MuiThemeProvider, 
+  MuiThemeProvider,
   RaisedButton
 } from 'material-ui';
 
