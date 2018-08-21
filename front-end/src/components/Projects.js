@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {MuiThemeProvider} from 'material-ui';
+import {MuiThemeProvider, RaisedButton} from 'material-ui';
 import {api} from '../request.js';
 import {
   Table,
@@ -9,6 +9,7 @@ import {
   TableRow,
   TableRowColumn
 } from 'material-ui/Table';
+import CreateProject from './CreateProject';
 
 class Manage extends Component {
   constructor(props){
@@ -18,7 +19,8 @@ class Manage extends Component {
       selected: null,
       showCheckboxes: false,
       fixedHeader: true,
-      fixedFooter: true
+      fixedFooter: true,
+      showForm: false
     }
   };
 
@@ -40,8 +42,14 @@ class Manage extends Component {
     })
   };
 
+  newProject = () => {
+    this.setState({
+      showForm: true
+    })
+  }
+
   render() {
-    const {projects, showCheckboxes, fixedHeader, fixedFooter} = this.state
+    const { showForm, projects, showCheckboxes, fixedHeader, fixedFooter} = this.state
     if (!projects) {
       return null
     }
@@ -81,8 +89,9 @@ class Manage extends Component {
                 }
               </TableBody>
             </Table>
-          </div>
+          </div>    
         )}
+        <RaisedButton className="button" label="New Project" onClick={this.newProject} />
       </MuiThemeProvider>
     );
   }

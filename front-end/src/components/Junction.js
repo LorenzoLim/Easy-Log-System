@@ -28,12 +28,12 @@ class Junction extends Component {
         <MuiThemeProvider>
             <Tabs>
               <Tab label="Projects" >
-                <div>
+                <div {...styles}>
                   <Projects />
                 </div>
               </Tab>
               <Tab label="Users" >
-                <div>
+                <div {...styles}>
                   <Users />
                 </div>
               </Tab>
