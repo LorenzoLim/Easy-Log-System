@@ -43,9 +43,16 @@ class Manage extends Component {
   };
 
   newProject = () => {
-    this.setState({
-      showForm: true
-    })
+    if(!this.state.showForm){
+      this.setState({
+        showForm: true
+      })
+    } else {
+      this.setState({
+        showForm: false
+      })
+    }
+
   }
 
   render() {
@@ -55,7 +62,7 @@ class Manage extends Component {
     }
     return (
       <MuiThemeProvider>
-        { projects && (
+        { !showForm && projects && (
           <div>
             <Table>
               <TableHeader
@@ -89,9 +96,10 @@ class Manage extends Component {
                 }
               </TableBody>
             </Table>
-          </div>    
+            <RaisedButton className="button" label="New Project" onClick={this.newProject} />
+          </div>
         )}
-        <RaisedButton className="button" label="New Project" onClick={this.newProject} />
+        { showForm && <CreateProject newProject={this.newProject} /> }
       </MuiThemeProvider>
     );
   }

@@ -18,6 +18,7 @@ class CreateProject extends Component {
 
   handleCreateProject = () => {
     let {projectNum, projectLocation, projectName, projectStatus, values} = this.state;
+    this.props.newProject();
     api({
       method: 'post',
       url: '/projects',
@@ -39,7 +40,12 @@ class CreateProject extends Component {
       console.log(error);
     });
   }
-  
+
+  makeProject = () => {
+    this.handleCreateProject()
+    this.props.showForm()
+  }
+
   componentWillMount(response) {
     api.get ('/users')
       .then(response => {
