@@ -18,7 +18,6 @@ class CreateProject extends Component {
 
   handleCreateProject = () => {
     let {projectNum, projectLocation, projectName, projectStatus, values} = this.state;
-    this.props.newProject();
     api({
       method: 'post',
       url: '/projects',
@@ -35,6 +34,7 @@ class CreateProject extends Component {
       this.setState({
         success: true
       })
+    this.props.newProject();
     })
     .catch((error) => {
       console.log(error);

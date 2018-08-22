@@ -25,6 +25,16 @@ class Manage extends Component {
   };
 
   componentWillMount(response) {
+    this.getProjects();
+  }
+
+  handleChange = (event, index, value) => {
+    this.setState({
+      selected: value
+    })
+  };
+
+  getProjects = () => {
     api.get ('/projects')
       .then(response => {
         this.setState({
@@ -36,12 +46,6 @@ class Manage extends Component {
       });
   }
 
-  handleChange = (event, index, value) => {
-    this.setState({
-      selected: value
-    })
-  };
-
   newProject = () => {
     if(!this.state.showForm){
       this.setState({
@@ -49,8 +53,10 @@ class Manage extends Component {
       })
     } else {
       this.setState({
+        projects: null,
         showForm: false
       })
+      this.getProjects();
     }
 
   }
