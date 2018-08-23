@@ -62,11 +62,6 @@ class Manage extends Component {
                 <TableRow key={user._id}>
                   <TableRowColumn>{user.firstName} {user.lastName}</TableRowColumn>
                   <TableRowColumn>{user.email}</TableRowColumn>
-                  {/* <TableRowColumn>
-                    {project.projectUsers.map((user) =>
-                      <span key={user._id}>{user.firstName} {user.lastName}<br /></span>
-                    )}
-                  </TableRowColumn> */}
                 </TableRow>
                 )
               }
