@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {MuiThemeProvider, RaisedButton} from 'material-ui';
-import {api} from '../request.js';
+import React, { Component } from 'react';
+import { RaisedButton } from 'material-ui';
+import { api } from '../request.js';
 import {
   Table,
   TableBody,
@@ -67,7 +67,7 @@ class Manage extends Component {
       return null
     }
     return (
-      <MuiThemeProvider>
+      <div>
         { !showForm && projects && (
           <div>
             <Table>
@@ -106,7 +106,7 @@ class Manage extends Component {
           </div>
         )}
         { showForm && <CreateProject newProject={this.newProject} /> }
-      </MuiThemeProvider>
+      </div>
     );
   }
 }

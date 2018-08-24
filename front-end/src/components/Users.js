@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {MuiThemeProvider} from 'material-ui';
+import CreateUser from './CreateUser';
 import {api} from '../request.js';
 import {
   Table,
