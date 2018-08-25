@@ -29,7 +29,7 @@ class Junction extends Component {
             <Tabs>
               <Tab label="Projects" >
                 <div {...styles}>
-                  <Projects fetchProjects={this.props.fetchProjects} projects={this.props.projects} />
+                  <Projects />
                 </div>
               </Tab>
               <Tab label="Users" >

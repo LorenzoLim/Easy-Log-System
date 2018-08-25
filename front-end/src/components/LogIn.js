@@ -78,7 +78,17 @@ class App extends Component {
       <div className="App">
         <img src={logo} alt="logo" />
         {
-          token ? (role === 'admin' ? <Junction handleSignOut={this.handleSignOut} fetchProjects={this.fetchProjects} projects={projects} /> : <CheckIn userId={userId} handleSignOut={this.handleSignOut} projects={projects} /> ) :
+          token ? (
+            role === 'admin' ?
+            <Junction
+              handleSignOut={this.handleSignOut}
+            /> :
+            <CheckIn
+              userId={userId}
+              handleSignOut={this.handleSignOut}
+              projects={projects}
+              fetchProjects={this.fetchProjects}
+            /> ) :
           (
             <div>
               <MuiThemeProvider>

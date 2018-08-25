@@ -37,18 +37,8 @@ class CheckIn extends Component {
     manualHour: false
   };
 
-  componentDidMount() {
-    // if(!this.state.projects){
-    //   api.get (`/projects`)
-    //     .then(response => {
-    //       this.setState({
-    //         projects: response.data
-    //       })
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // }
+  componentWillReceiveProps() {
+    this.props.fetchProjects();
   }
 
   handleHourChange = (event, index, value) => {
