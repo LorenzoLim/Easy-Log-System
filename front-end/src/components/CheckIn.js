@@ -9,7 +9,7 @@ class CheckIn extends Component {
     selectedHourType: null,
     selectedProject: null,
     checkedIn: false,
-    projects: this.props.projects,
+    projects: null,
     hourType: [
       {_id: '1', type: 'Project'},
       {_id: '2', type: 'Business Support - Business Development'},
@@ -37,8 +37,16 @@ class CheckIn extends Component {
     manualHour: false
   };
 
-  componentWillReceiveProps() {
-    this.props.fetchProjects();
+  componentWillMount() {
+    api.get (`/projects`)
+      .then(response => {
+        this.setState({
+          projects: response.data
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   handleHourChange = (event, index, value) => {
