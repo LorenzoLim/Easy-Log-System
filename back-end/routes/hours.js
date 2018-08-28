@@ -33,7 +33,7 @@ router.get('/:id', (req, res) =>{
 router.post('/', (req, res) => {
   Hour.create({
     type: req.body.selectedHourType,
-    total: req.body.total,
+    total: req.body.totalTime,
     project_id: req.body.selectedProject,
     user_id: req.body.userId
   }).then((hour) => {

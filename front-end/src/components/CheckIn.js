@@ -85,7 +85,7 @@ class CheckIn extends Component {
       url: '/hours',
       data: {
         userId,
-        total: totalTime,
+        totalTime,
         selectedProject,
         selectedHourType
       }
@@ -108,7 +108,7 @@ class CheckIn extends Component {
       url: '/hours',
       data: {
         userId,
-        total: totalTime,
+        totalTime,
         selectedProject,
         selectedHourType
       }
