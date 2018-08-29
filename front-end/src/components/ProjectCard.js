@@ -68,7 +68,6 @@ class ProjectCard extends Component {
 
   render() {
     const {projectLocation, projectStatus, projectNum, projectUsers, hourDetails} = this.state
-
     if (!projectUsers || !hourDetails) {
       return null;
     }
