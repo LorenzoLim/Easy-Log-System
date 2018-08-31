@@ -19,7 +19,6 @@ router.get('/report.csv', (req, res) =>{
       userLastName: hour.user_id.lastName,
       project: hour.project_id.projectName
     }))
-    console.log(newArray);
       res.csv(newArray)
   });
 });
