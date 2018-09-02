@@ -56,8 +56,8 @@ class ProjectCard extends Component {
             hourDetails: data
           })
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          console.log(error);
         });
   }
 
