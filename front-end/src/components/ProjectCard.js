@@ -71,6 +71,7 @@ class ProjectCard extends Component {
     if (!projectUsers || !hourDetails) {
       return null;
     }
+    console.log(projectUsers);
     const userHours = {};
     hourDetails.forEach((userHour) => {
       const userId = userHour.user_id._id
