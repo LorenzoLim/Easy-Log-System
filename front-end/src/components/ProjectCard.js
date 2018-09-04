@@ -71,15 +71,13 @@ class ProjectCard extends Component {
     if (!projectUsers || !hourDetails) {
       return null;
     }
-    console.log(projectUsers);
     const userHours = {};
+    projectUsers.forEach((user) => {
+      userHours[user._id] = 0
+    })
     hourDetails.forEach((userHour) => {
       const userId = userHour.user_id._id
-      if(!userHours[userId]){
-        userHours[userId] = userHour.total
-      }else{
-        userHours[userId] = userHours[userId] + userHour.total
-      }
+      userHours[userId] = userHours[userId] + userHour.total
     })
     return (
       <div>
